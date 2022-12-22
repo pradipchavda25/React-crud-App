@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import TableData from "./components/Table";
+import "./App.css";
+import { useState } from "react";
+import UserData from "./components/Form";
 
 function App() {
+  const [data, setData] = useState([]);
+  const [editing, setEditing] = useState(null);
+
+  const handleSubmit = (formValues) => {
+    let newData = [...data];
+
+    if (editing !== null) {
+      newData = newData.map((d, index) => {
+        if (index === editing) {
+          return formValues;
+        } else {
+          return d;
+        }
+      });
+    } else {
+      newData.push(formValues);
+    }
+
+    setData(newData);
+    setEditing(null);
+  };
+
+  const removeRow = (id) => {
+    const newData = data.filter((d, index) => index !== id);
+    setData(newData);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>React CRUD App</h2>
+      <UserData onSubmit={handleSubmit} defaultValue={data[editing]} />
+      <TableData
+        data={data}
+        onEdit={(id) => setEditing(id)}
+        onDelete={removeRow}
+      />
     </div>
   );
 }
