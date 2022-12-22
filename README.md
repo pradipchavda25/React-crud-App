@@ -2,7 +2,7 @@
 
 ## description
     
-This app is basically perform a Create, Read, Update, Delete (CRUD) operation of user input data in table using. I have used React js in this project along with HTML and CSS.
+This app is basically perform a Create, Read, Update, Delete (CRUD) operation of user input data in table. I have used React js in this project along with HTML and CSS.
 
 
 
