@@ -8,5 +8,5 @@ This app is basically perform a Create, Read, Update, Delete (CRUD) operation of
 
 ## Preview of Project
 
-![](https://github.com/pradipchavda25/React-crud-App/blob/master/React-App%20(1).gif)
+![](https://github.com/pradipchavda25/React-crud-App/blob/master/React-App.gif)
 
